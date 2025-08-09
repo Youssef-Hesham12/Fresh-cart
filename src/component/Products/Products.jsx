@@ -15,14 +15,15 @@ export default function Products() {
   function getProducts() {
     return axios.get('https://ecommerce.routemisr.com/api/v1/products')
   }
-  let { isError, isFetching, isLoading, error, data } = useQuery({ queryKey: ['recentProducts'], queryFn: getProducts, staleTime: 5000, refetchInterval: 3000 })
+  let { isError, isLoading, error, data } = useQuery({ queryKey: ['recentProducts'], queryFn: getProducts, staleTime: 5000, refetchInterval: 3000 })
   if (isLoading) {
     return <div className='over-lay'> <i className='fas fa-spinner fa-spin text-white text-5xl absolute top-[50%] left-[50%] spin'></i></div>
   }
   if (isError) {
-    return <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-      <span class="font-medium">{error}</span>
-    </div>
+    return <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+  <span className="font-medium">{'{'}error{'}'}</span>
+</div>
+
   }
   console.log(data);
   async function addProduct(id) {

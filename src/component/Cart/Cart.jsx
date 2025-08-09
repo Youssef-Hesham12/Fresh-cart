@@ -8,6 +8,7 @@ export default function Cart() {
   let [isLoading, setIsLoading] = useState(false)
   let [totalPrice, setTotalPrice] = useState(0)
   let [totalCount, setTotalCount] = useState(0)
+  
   async function getItems() {
     setIsLoading(true)
     let response = await getCartItems()
@@ -23,6 +24,8 @@ export default function Cart() {
         setIsLoading(false)
       })
   }
+
+
   async function removeCartItems(id) {
     setIsLoading(true)
     let response = await removeItems(id)
@@ -38,6 +41,8 @@ export default function Cart() {
         setIsLoading(false)
       })
   }
+
+
   async function updateCartItems(id, count) {
     setIsLoading(true)
     let response = await updateCart(id, count)
@@ -52,6 +57,8 @@ export default function Cart() {
         setIsLoading(false)
       })
   }
+
+  
   async function clearCart() {
     setIsLoading(true)
     let response = await removeCart()
